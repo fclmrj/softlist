@@ -1,6 +1,6 @@
 {
   "name": "softlist",
-  "version": "1.0.0.1",
+  "version": "1.0.0",
   "description": "Projeto que gerencia uma Lista de Softwares para aprendizado de Javascript, NodeJS, AngularJs (Project that manage a Software List to learn Javascript, Nodejs and Angular)",
   "private": true,
   "main": "bin/www",
