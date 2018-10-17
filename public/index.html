@@ -1,0 +1,76 @@
+<html ng-app="listaDeJogos">
+    <meta charset="utf-8">
+	<head>
+		<title></title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap/css/bootstrap.css"/>
+	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js'>
+	</script>
+    <style>
+    	.jumbotron {
+    	   width : 500px;
+    	   margin-left : auto;
+    	   margin-right : auto;
+    	   margin-top: 40px;
+    	   text-align: center;
+    	}
+
+    	.table{
+          width: 400px;
+          margin-left: auto;  
+          margin-right: auto;
+    	}
+    </style>
+	<script>
+	 angular.module("listaDeJogos",[]);
+	 angular.module("listaDeJogos").controller('listaDeJogosCtrl', function($scope, $http){
+		$scope.app = 'Lista de Jogos';
+
+		$scope.jogosExtra = [
+			{nome : 'Feed and Grow Fish', preco : 15.2, categoria : 'Aventura'},
+			{nome : 'Fortnite',  preco : 28.9, categoria : 'Ação'},
+			{nome : 'Pokemon Fire Red', preco : 31.8, categoria : 'Rpg'}
+		];
+
+		$http.get('http://localhost:3000/users/softwares').success(function(data,status){
+			$scope.jogos = data;
+			$scope.jogos.push($scope.jogosExtra[0]);
+			$scope.jogos.push($scope.jogosExtra[1]);
+			$scope.jogos.push($scope.jogosExtra[2]);
+		});
+
+		$scope.AdicionarJogo = function(){
+			$scope.jogos.push({nome : $scope.jogo.nome, 
+				               preco : $scope.jogo.preco, 
+				               categoria : $scope.jogo.categoria});
+		}
+	 });
+	</script>
+	</head>
+<body ng-controller='listaDeJogosCtrl'>
+	<div class="jumbotron" style="height: 50px; margin-top: 20px; padding-top: 30px">
+		<h4 ng-bind='app'/>
+	</div>
+
+	<table class="table table-striped">
+		<tr>
+			<th>Nome</th>
+			<th>Preço</th>
+			<th>Categoria</th>
+		</tr>
+		<tr ng-repeat="jogo in jogos">
+		  <td>{{jogo.nome}}</td>
+		  <td>{{jogo.preco}}</td>
+		  <td>{{jogo.categoria}}</td>			  
+		</tr>
+	</table>
+    <div class="jumbotron" style='margin-top: 30px; padding-top: 5px; padding-bottom: 15px; padding-bottom: 1px'>
+   	<form>
+		<input class="form-control" style='margin-top: 10px;' type="text" ng-model="jogo.nome" placeholder="Nome">
+		<input class="form-control" style='margin-top: 10px;' type="text" ng-model="jogo.preco"  placeholder="Preço">
+		<input class="form-control" style='margin-top: 10px;' type="text" ng-model="jogo.categoria" placeholder="Categoria">
+	    <input type="button" value="Cadastrar Jogo" class="btn btn-lg btn-primary" style="margin-top: 10px" ng-click="AdicionarJogo()">
+	    <hr/>
+	</form>
+	</div>
+</body>
+</html>

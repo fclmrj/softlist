@@ -1,0 +1,34 @@
+{
+  "name": "softlist",
+  "version": "1.0.0.1",
+  "description": "Projeto que gerencia uma Lista de Softwares para aprendizado de Javascript, NodeJS, AngularJs (Project that manage a Software List to learn Javascript, Nodejs and Angular)",
+  "private": true,
+  "main": "bin/www",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "keywords": [
+    "HTML5",
+    "Javascript",
+    "JSON",
+    "NodeJs",
+    "Express",
+    "Morgan",
+    "Cookie Parser",
+    "Debug",
+    "AngularJS",
+    "Css",
+    "BootStrap"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fclmrj/softlist.git"
+  },
+  "author": "Fabio Moura",
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "morgan": "~1.9.0"
+  }
+}
