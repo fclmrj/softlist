@@ -1,4 +1,4 @@
-<html ng-app="listaDeJogos">
+<html ng-app="listaDeSoftwares">
     <meta charset="utf-8">
 	<head>
 		<title></title>
@@ -21,32 +21,32 @@
     	}
     </style>
 	<script>
-	 angular.module("listaDeJogos",[]);
-	 angular.module("listaDeJogos").controller('listaDeJogosCtrl', function($scope, $http){
-		$scope.app = 'Lista de Jogos';
+	 angular.module("listaDeSoftwares",[]);
+	 angular.module("listaDeSoftwares").controller('listaDeSoftwaresCtrl', function($scope, $http){
+		$scope.app = 'Lista de Softwares';
 
-		$scope.jogosExtra = [
+		$scope.softwaresExtra = [
 			{nome : 'Feed and Grow Fish', preco : 15.2, categoria : 'Aventura'},
 			{nome : 'Fortnite',  preco : 28.9, categoria : 'Ação'},
 			{nome : 'Pokemon Fire Red', preco : 31.8, categoria : 'Rpg'}
 		];
 
 		$http.get('http://localhost:3000/users/softwares').success(function(data,status){
-			$scope.jogos = data;
-			$scope.jogos.push($scope.jogosExtra[0]);
-			$scope.jogos.push($scope.jogosExtra[1]);
-			$scope.jogos.push($scope.jogosExtra[2]);
+			$scope.softwares = data;
+			$scope.softwares.push($scope.softwaresExtra[0]);
+			$scope.softwares.push($scope.softwaresExtra[1]);
+			$scope.softwares.push($scope.softwaresExtra[2]);
 		});
 
-		$scope.AdicionarJogo = function(){
-			$scope.jogos.push({nome : $scope.jogo.nome, 
-				               preco : $scope.jogo.preco, 
-				               categoria : $scope.jogo.categoria});
+		$scope.adicionarSoftware = function(){
+			$scope.softwares.push({nome : $scope.software.nome, 
+				               preco : $scope.software.preco, 
+				               categoria : $scope.software.categoria});
 		}
 	 });
 	</script>
 	</head>
-<body ng-controller='listaDeJogosCtrl'>
+<body ng-controller='listaDeSoftwaresCtrl'>
 	<div class="jumbotron" style="height: 50px; margin-top: 20px; padding-top: 30px">
 		<h4 ng-bind='app'/>
 	</div>
@@ -57,18 +57,18 @@
 			<th>Preço</th>
 			<th>Categoria</th>
 		</tr>
-		<tr ng-repeat="jogo in jogos">
-		  <td>{{jogo.nome}}</td>
-		  <td>{{jogo.preco}}</td>
-		  <td>{{jogo.categoria}}</td>			  
+		<tr ng-repeat="software in softwares">
+		  <td>{{software.nome}}</td>
+		  <td>{{software.preco}}</td>
+		  <td>{{software.categoria}}</td>			  
 		</tr>
 	</table>
     <div class="jumbotron" style='margin-top: 30px; padding-top: 5px; padding-bottom: 15px; padding-bottom: 1px'>
    	<form>
-		<input class="form-control" style='margin-top: 10px;' type="text" ng-model="jogo.nome" placeholder="Nome">
-		<input class="form-control" style='margin-top: 10px;' type="text" ng-model="jogo.preco"  placeholder="Preço">
-		<input class="form-control" style='margin-top: 10px;' type="text" ng-model="jogo.categoria" placeholder="Categoria">
-	    <input type="button" value="Cadastrar Jogo" class="btn btn-lg btn-primary" style="margin-top: 10px" ng-click="AdicionarJogo()">
+		<input class="form-control" style='margin-top: 10px;' type="text" ng-model="software.nome" placeholder="Nome">
+		<input class="form-control" style='margin-top: 10px;' type="text" ng-model="software.preco"  placeholder="Preço">
+		<input class="form-control" style='margin-top: 10px;' type="text" ng-model="software.categoria" placeholder="Categoria">
+	    <input type="button" value="Cadastrar Software" class="btn btn-lg btn-primary" style="margin-top: 10px" ng-click="adicionarSoftware()">
 	    <hr/>
 	</form>
 	</div>
