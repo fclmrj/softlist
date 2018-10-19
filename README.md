@@ -19,6 +19,6 @@ Liguagens utilizadas (Languages used):
    
  Autor (Author): Fabio Moura
  
- Disponível em (Avaiable in): https://softlist.herokuapp.com/ 
+ Disponível em (Available in): https://softlist.herokuapp.com/ 
  
  Uso (Usage): {"start": "node ./bin/www"}
