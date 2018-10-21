@@ -1,5 +1,5 @@
-var mysql = require('oracledb');
-var dbConfig = require('dbconfig.js');
+var oracledb = require('oracledb');
+var dbConfig = require('./dbConfig.js');
 
 function connectionFactory(){
 	return oracledb.getConnection({
@@ -26,5 +26,5 @@ function connectionFactory(){
 };
 
 module.exports = function(){
- return connectionFactory;
+ return connectionFactory();
 };
