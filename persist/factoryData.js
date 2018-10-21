@@ -1,11 +1,28 @@
-var mysql = require('mysql');
+var mysql = require('oracledb');
+var dbConfig = require('dbconfig.js');
 
 function connectionFactory(){
-	return mysql.createConnection({
-  		host: "localhost",
-  		user: "yourusername",
-  		password: "yourpassword"
-	});
+	return oracledb.getConnection({
+								    user          : dbConfig.user,
+								    password      : dbConfig.password,
+								    connectString : dbConfig.connectString
+								  },
+								  
+								  function(err, connection) {
+								    if (err) {
+								      console.error(err.message);
+								      return;
+								    }
+								    console.log('Connection was successful!');
+
+								    connection.close(
+								      function(err) {
+								        if (err) {
+								          console.error(err.message);
+								          return;
+								        }
+								      });
+								  });
 };
 
 module.exports = function(){
