@@ -1,7 +1,7 @@
 var oracledb = require('oracledb');
 var dbConfig = require('./dbConfig.js');
 
-function connectionFactory(){
+function getConnection(){
 	return oracledb.getConnection({
 								    user          : dbConfig.user,
 								    password      : dbConfig.password,
@@ -23,6 +23,11 @@ function connectionFactory(){
 								        }
 								      });
 								  });
+
+}
+
+function connectionFactory(){
+	return {getConnection : getConnection}
 };
 
 module.exports = function(){
