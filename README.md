@@ -17,6 +17,10 @@ Liguagens utilizadas (Languages used):
    -Css
    -BootStrap
    
+Infraestruturas utilizadas (Infrastructures used):    
+-Heroku (NodeJS)
+-Amazon (EC2(Linux Rad Hat),RDS(Oracle))
+   
  Autor (Author): Fabio Moura
  
  Disponível em (Available in): https://softlist.herokuapp.com/ 
