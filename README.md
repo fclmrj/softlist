@@ -19,7 +19,7 @@ Liguagens utilizadas (Languages used):
    
 Infraestruturas utilizadas (Infrastructures used):    
 -Heroku (NodeJS)
--Amazon (EC2(Linux Rad Hat),RDS(Oracle))
+-Postgress
    
  Autor (Author): Fabio Moura
  
