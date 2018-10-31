@@ -8,7 +8,7 @@
 * ###### Javascript 
 * ###### JSON 
 * ###### NodeJs 
-* ###### Dependencias *(Dependencies)*: 
+* ###### Dependências *(Dependencies)*: 
   - ###### Express 
   - ###### Morgan 
   - ###### Cookie Parser 
